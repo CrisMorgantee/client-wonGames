@@ -90,6 +90,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
     left: 0;
     height: 100vh;
     overflow: hidden;
+    transition: opacity 300ms ease-in-out;
     opacity: ${isOpen ? 1 : 0};
     pointer-events: ${isOpen ? 'all' : 'none'};
 
@@ -116,6 +117,13 @@ export const MenuFull = styled.nav<MenuFullProps>`
       font-size: ${theme.font.sizes.xlarge};
       font-weight: ${theme.font.bold};
       margin-bottom: ${theme.spacings.small};
+      transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
+      transition: transform 300ms ease-in-out;
+    }
+
+    ${RegisterBox} {
+      transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
+      transition: transform 300ms ease-in-out;
     }
   `}
 `
