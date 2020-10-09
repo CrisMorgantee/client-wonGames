@@ -1,6 +1,5 @@
 import { AddShoppingCart } from '@styled-icons/material-outlined/AddShoppingCart'
 import { screen } from '@testing-library/react'
-import 'jest-styled-components'
 import { renderWithTheme } from 'utils/tests/helpers'
 import Button from '.'
 
