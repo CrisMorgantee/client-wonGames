@@ -4,6 +4,7 @@ import { ShoppingCart as ShoppingCartIcon } from '@styled-icons/material-outline
 import { Menu2 as MenuIcon } from '@styled-icons/remix-fill/Menu2'
 import Button from 'components/Button'
 import Logo from 'components/Logo'
+import MediaMatch from 'components/MediaMatch'
 import { useState } from 'react'
 import * as S from './styles'
 
@@ -16,12 +17,20 @@ const Menu = ({ username }: MenuProps) => {
 
   return (
     <S.Wrapper>
-      <S.IconWrapper onClick={() => setIsOpen(true)}>
-        <MenuIcon aria-label="Open menu" />
-      </S.IconWrapper>
+      <MediaMatch lessThan="medium">
+        <S.IconWrapper onClick={() => setIsOpen(true)}>
+          <MenuIcon aria-label="Open menu" />
+        </S.IconWrapper>
+      </MediaMatch>
       <S.LogoWrapper>
         <Logo hideOnMobile />
       </S.LogoWrapper>
+      <MediaMatch greaterThan="medium">
+        <S.MenuNav>
+          <S.MenuLink href="#">Home</S.MenuLink>
+          <S.MenuLink href="#">Explore</S.MenuLink>
+        </S.MenuNav>
+      </MediaMatch>
       <S.MenuGroup>
         <S.IconWrapper>
           <SearchIcon aria-label="Search" />
@@ -29,6 +38,11 @@ const Menu = ({ username }: MenuProps) => {
         <S.IconWrapper>
           <ShoppingCartIcon aria-label="Open shopping cart" />
         </S.IconWrapper>
+        {!username && (
+          <MediaMatch greaterThan="medium">
+            <Button>Sign in</Button>
+          </MediaMatch>
+        )}
       </S.MenuGroup>
 
       <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
