@@ -21,13 +21,13 @@ export default {
   },
   parameters: {
     backgrounds: {
-      default: 'dark'
+      default: 'won-dark'
     }
   }
 } as Meta
 
 export const Default: Story<GameCardProps> = (args) => (
-  <div style={{ width: '30rem' }}>
+  <div style={{ width: '30rem', margin: '0 auto' }}>
     <GameCard {...args} />
   </div>
 )
