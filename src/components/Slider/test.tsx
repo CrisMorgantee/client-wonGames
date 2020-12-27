@@ -1,5 +1,5 @@
-import '.jest/match-media-mock'
 import { render, screen } from '@testing-library/react'
+import 'match-media-mock'
 import Slider from '.'
 
 describe('<Slider />', () => {
