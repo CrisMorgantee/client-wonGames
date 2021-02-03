@@ -35,6 +35,10 @@ const wrapperModifiers = {
     ${media.greaterThan('medium')`
       font-size: ${theme.font.sizes.xxlarge};
     `}
+  `,
+
+  huge: (theme: DefaultTheme) => css`
+    font-size: ${theme.font.sizes.huge};
   `
 }
 
@@ -44,6 +48,6 @@ export const Wrapper = styled.h2<HeadingProps>`
 
     ${lineLeft && wrapperModifiers.lineLeft(theme, lineColor!)}
     ${lineBottom && wrapperModifiers.lineBottom(theme, lineColor!)}
-    ${!!size && wrapperModifiers[size](theme)}
+    ${!!size && wrapperModifiers[size!](theme)}
   `}
 `
