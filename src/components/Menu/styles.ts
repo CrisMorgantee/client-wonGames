@@ -31,7 +31,7 @@ export const MenuGroup = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-grow: 1;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
 
     > div {
