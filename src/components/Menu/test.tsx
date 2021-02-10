@@ -12,7 +12,7 @@ describe('<Menu />', () => {
     expect(screen.getByRole('img', { name: /Won Games/i })).toBeInTheDocument()
   })
 
-  it('should render the menu', () => {
+  it('should handle the open/close mobile menu', () => {
     renderWithTheme(<Menu />)
 
     const fullMenuElement = screen.getByRole('navigation', { hidden: true })
