@@ -47,7 +47,7 @@ const settings: SliderSettings = {
   prevArrow: <ArrowLeft aria-label="previous games" />
 }
 
-const GameCardSlider = ({ items, color = 'black' }: GameCardSliderProps) => {
+const GameCardSlider = ({ items, color = 'white' }: GameCardSliderProps) => {
   return (
     <S.Wrapper color={color}>
       <Slider settings={settings}>
