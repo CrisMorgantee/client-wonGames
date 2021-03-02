@@ -80,6 +80,6 @@ export const Wrapper = styled.button<WrapperProps>`
     ${!!fullWidth && wrapperModifiers.fullWidth}
     ${!!hasIcon && wrapperModifiers.withIcon(theme)}
     ${!!minimal && wrapperModifiers.minimal(theme)};
-    ${disabled && wrapperModifiers.disabled()};
+    ${!!disabled && wrapperModifiers.disabled()};
   `}
 `
