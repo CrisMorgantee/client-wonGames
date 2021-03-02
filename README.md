@@ -1,3 +1,5 @@
+![React Avançado](./public/img/won.png)
+
 # E-Commerce - Won Games
 (client)
 
