@@ -1,7 +1,7 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 import { TextFieldProps } from '.'
 
-type IconPositionProps = Pick<TextFieldProps, 'iconPosition'>
+type InputProps = Pick<TextFieldProps, 'iconPosition' | 'icon'>
 
 type WrapperProps = Pick<TextFieldProps, 'disabled'> & { error?: boolean }
 
@@ -29,13 +29,13 @@ export const InputWrapper = styled.div`
   `}
 `
 
-export const Input = styled.input<IconPositionProps>`
-  ${({ theme, iconPosition }) => css`
+export const Input = styled.input<InputProps>`
+  ${({ theme, iconPosition, icon }) => css`
     color: ${theme.colors.black};
     font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.medium};
     padding: ${theme.spacings.xxsmall} 0;
-    padding-${iconPosition}: ${theme.spacings.xsmall};
+    padding-${iconPosition}: ${icon ? theme.spacings.xsmall : 0};
     background: transparent;
     border: 0;
     outline: none;
@@ -43,7 +43,7 @@ export const Input = styled.input<IconPositionProps>`
   `}
 `
 
-export const Icon = styled.div<IconPositionProps>`
+export const Icon = styled.div<InputProps>`
   ${({ theme, iconPosition }) => css`
     display: flex;
     color: ${theme.colors.gray};
