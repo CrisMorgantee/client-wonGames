@@ -25,6 +25,7 @@ const Menu = ({ username }: MenuProps) => {
           <MenuIcon aria-label="Open menu" />
         </S.IconWrapper>
       </MediaMatch>
+
       <S.LogoWrapper>
         <Link href="/" passHref>
           <a>
@@ -32,6 +33,7 @@ const Menu = ({ username }: MenuProps) => {
           </a>
         </Link>
       </S.LogoWrapper>
+
       <MediaMatch greaterThan="medium">
         <S.MenuNav>
           <Link href="/" passHref>
@@ -42,10 +44,12 @@ const Menu = ({ username }: MenuProps) => {
           </Link>
         </S.MenuNav>
       </MediaMatch>
+
       <S.MenuGroup>
         <S.IconWrapper>
           <SearchIcon aria-label="Search" />
         </S.IconWrapper>
+
         <S.IconWrapper>
           <MediaMatch greaterThan="medium">
             <CartDropdown />
