@@ -28,9 +28,9 @@ const Wishlist = ({
 
         {games.length ? (
           <Grid>
-            {games?.map((game, index) => (
-              <GameCard key={`wishlist-${index}`} {...game} />
-            ))}
+            {games?.map((game, index) => {
+              return <GameCard key={`wishlist-${index}`} {...game} />
+            })}
           </Grid>
         ) : (
           <Empty
