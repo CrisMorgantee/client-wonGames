@@ -5,7 +5,7 @@ import {
   QueryGameBySlugVariables
 } from 'graphql/generated/QueryGameBySlug'
 import { QueryGames, QueryGamesVariables } from 'graphql/generated/QueryGames'
-import { QUERY_GAMES, QUERY_GAME_BY_SLUG } from 'graphql/queryes/games'
+import { QUERY_GAMES, QUERY_GAME_BY_SLUG } from 'graphql/queries/games'
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import React from 'react'

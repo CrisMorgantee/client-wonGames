@@ -1,6 +1,6 @@
 import filterItemsMock from 'components/ExploreSidebar/mock'
 import { QueryGames, QueryGamesVariables } from 'graphql/generated/QueryGames'
-import { QUERY_GAMES } from 'graphql/queryes/games'
+import { QUERY_GAMES } from 'graphql/queries/games'
 import GamesTemplate, { GamesTemplateProps } from 'templates/Games'
 import { initializeApollo } from 'utils/apollo'
 
