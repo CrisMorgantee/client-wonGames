@@ -10,7 +10,7 @@ import {
 } from 'graphql/generated/QueryUpcoming'
 import { QUERY_GAMES, QUERY_GAME_BY_SLUG } from 'graphql/queries/games'
 import { QUERY_RECOMMENDED } from 'graphql/queries/recommended'
-import { QUERY_UPCOMMING } from 'graphql/queries/upcoming'
+import { QUERY_UPCOMING } from 'graphql/queries/upcoming'
 import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -23,7 +23,7 @@ const apolloClient = initializeApollo()
 export default function Index(props: GameTemplateProps) {
   const router = useRouter()
 
-  router.isFallback && null
+  if (router.isFallback) return null
 
   return <Game {...props} />
 }
@@ -40,13 +40,18 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const today = new Date().toISOString().slice(0, 10)
   const { data } = await apolloClient.query<
     QueryGameBySlug,
     QueryGameBySlugVariables
-  >({ query: QUERY_GAME_BY_SLUG, variables: { slug: `${params?.slug}` } })
+  >({
+    query: QUERY_GAME_BY_SLUG,
+    variables: { slug: `${params?.slug}` },
+    fetchPolicy: 'no-cache'
+  })
 
-  !data.games.length && { notFound: true }
+  if (!data.games.length) {
+    return { notFound: true }
+  }
 
   const game = data.games[0]
 
@@ -54,14 +59,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     query: QUERY_RECOMMENDED
   })
 
+  const today = new Date().toISOString().slice(0, 10)
   const { data: upcoming } = await apolloClient.query<
     QueryUpcoming,
     QueryUpcomingVariables
-  >({ query: QUERY_UPCOMMING, variables: { date: today } })
+  >({ query: QUERY_UPCOMING, variables: { date: today } })
 
   return {
+    revalidate: 60,
     props: {
-      revalidate: 60,
       cover: `http://localhost:1337${game.cover?.src}`,
       gameInfo: {
         title: game.name,

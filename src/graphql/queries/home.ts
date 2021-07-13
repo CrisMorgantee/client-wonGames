@@ -12,7 +12,7 @@ export const QUERY_HOME = gql`
     newGames: games(
       where: { release_date_lte: $date }
       sort: "release_date:desc"
-      limit: 8
+      limit: 9
     ) {
       ...GameFragment
     }
@@ -20,12 +20,12 @@ export const QUERY_HOME = gql`
     upcomingGames: games(
       where: { release_date_gt: $date }
       sort: "release_date:asc"
-      limit: 8
+      limit: 9
     ) {
       ...GameFragment
     }
 
-    freeGames: games(where: { price: 0 }, sort: "release_date:desc", limit: 8) {
+    freeGames: games(where: { price: 0 }, sort: "release_date:desc", limit: 9) {
       ...GameFragment
     }
 

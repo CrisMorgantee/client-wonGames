@@ -41,6 +41,16 @@ export interface QueryHome_newGames_cover {
   url: string;
 }
 
+export interface QueryHome_newGames_platforms {
+  __typename: "Platform";
+  name: string;
+}
+
+export interface QueryHome_newGames_categories {
+  __typename: "Category";
+  name: string;
+}
+
 export interface QueryHome_newGames_developers {
   __typename: "Developer";
   name: string;
@@ -48,9 +58,12 @@ export interface QueryHome_newGames_developers {
 
 export interface QueryHome_newGames {
   __typename: "Game";
+  id: string;
   name: string;
   slug: string;
   cover: QueryHome_newGames_cover | null;
+  platforms: QueryHome_newGames_platforms[];
+  categories: QueryHome_newGames_categories[];
   developers: QueryHome_newGames_developers[];
   price: number;
 }
@@ -60,6 +73,16 @@ export interface QueryHome_upcomingGames_cover {
   url: string;
 }
 
+export interface QueryHome_upcomingGames_platforms {
+  __typename: "Platform";
+  name: string;
+}
+
+export interface QueryHome_upcomingGames_categories {
+  __typename: "Category";
+  name: string;
+}
+
 export interface QueryHome_upcomingGames_developers {
   __typename: "Developer";
   name: string;
@@ -67,9 +90,12 @@ export interface QueryHome_upcomingGames_developers {
 
 export interface QueryHome_upcomingGames {
   __typename: "Game";
+  id: string;
   name: string;
   slug: string;
   cover: QueryHome_upcomingGames_cover | null;
+  platforms: QueryHome_upcomingGames_platforms[];
+  categories: QueryHome_upcomingGames_categories[];
   developers: QueryHome_upcomingGames_developers[];
   price: number;
 }
@@ -79,6 +105,16 @@ export interface QueryHome_freeGames_cover {
   url: string;
 }
 
+export interface QueryHome_freeGames_platforms {
+  __typename: "Platform";
+  name: string;
+}
+
+export interface QueryHome_freeGames_categories {
+  __typename: "Category";
+  name: string;
+}
+
 export interface QueryHome_freeGames_developers {
   __typename: "Developer";
   name: string;
@@ -86,9 +122,12 @@ export interface QueryHome_freeGames_developers {
 
 export interface QueryHome_freeGames {
   __typename: "Game";
+  id: string;
   name: string;
   slug: string;
   cover: QueryHome_freeGames_cover | null;
+  platforms: QueryHome_freeGames_platforms[];
+  categories: QueryHome_freeGames_categories[];
   developers: QueryHome_freeGames_developers[];
   price: number;
 }
@@ -146,6 +185,16 @@ export interface QueryHome_sections_popularGames_games_cover {
   url: string;
 }
 
+export interface QueryHome_sections_popularGames_games_platforms {
+  __typename: "Platform";
+  name: string;
+}
+
+export interface QueryHome_sections_popularGames_games_categories {
+  __typename: "Category";
+  name: string;
+}
+
 export interface QueryHome_sections_popularGames_games_developers {
   __typename: "Developer";
   name: string;
@@ -153,9 +202,12 @@ export interface QueryHome_sections_popularGames_games_developers {
 
 export interface QueryHome_sections_popularGames_games {
   __typename: "Game";
+  id: string;
   name: string;
   slug: string;
   cover: QueryHome_sections_popularGames_games_cover | null;
+  platforms: QueryHome_sections_popularGames_games_platforms[];
+  categories: QueryHome_sections_popularGames_games_categories[];
   developers: QueryHome_sections_popularGames_games_developers[];
   price: number;
 }
