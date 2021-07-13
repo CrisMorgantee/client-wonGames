@@ -31,8 +31,9 @@ describe('<TextContent />', () => {
   it('should render correct title colors ', () => {
     renderWithTheme(<TextContent {...props} />)
 
-    const wrapper = screen.getByRole('heading', { name: /description/i })
-      .parentElement
+    const wrapper = screen.getByRole('heading', {
+      name: /description/i
+    }).parentElement
 
     expect(wrapper).toHaveStyle({
       color: '#FAFAFA' // theme.colors.white
