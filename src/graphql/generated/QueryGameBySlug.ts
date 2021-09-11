@@ -44,8 +44,8 @@ export interface QueryGameBySlug_games {
   __typename: "Game";
   id: string;
   name: string;
-  description: string;
   short_description: string;
+  description: string;
   price: number;
   rating: ENUM_GAME_RATING | null;
   release_date: any | null;
