@@ -21,19 +21,16 @@ export const ShowMore = styled.div`
 
 export const ShowMoreButton = styled.div`
   ${({ theme }) => css`
-    color: ${theme.colors.white};
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
-
-    svg {
+    color: ${theme.colors.white};
+    > svg {
       color: ${theme.colors.primary};
-      width: 3.5rem;
     }
   `}
 `
-
 export const ShowMoreLoading = styled.img`
   width: 4rem;
 `

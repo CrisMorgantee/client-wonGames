@@ -1,4 +1,4 @@
-import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined'
+import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown'
 import Empty from 'components/Empty'
 import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar'
 import GameCard from 'components/GameCard'
@@ -16,16 +16,17 @@ export type GamesTemplateProps = {
 
 const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
   const { push, query } = useRouter()
+
   const { data, loading, fetchMore } = useQueryGames({
     notifyOnNetworkStatusChange: true,
     variables: {
-      limit: 9,
+      limit: 15,
       where: parseQueryStringToWhere({ queryString: query, filterItems }),
       sort: query.sort as string | null
     }
   })
 
-  if (!data) return <p>Loading...</p>
+  if (!data) return <p>loading...</p>
 
   const { games, gamesConnection } = data
 
@@ -40,8 +41,9 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
   }
 
   const handleShowMore = () => {
-    fetchMore({ variables: { limit: 9, start: data?.games.length } })
+    fetchMore({ variables: { limit: 15, start: data?.games.length } })
   }
+
   return (
     <Base>
       <S.Main>
@@ -69,7 +71,6 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
                   />
                 ))}
               </Grid>
-
               {hasMoreGames && (
                 <S.ShowMore>
                   {loading ? (
@@ -80,7 +81,7 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
                   ) : (
                     <S.ShowMoreButton role="button" onClick={handleShowMore}>
                       <p>Show More</p>
-                      <ArrowDown />
+                      <ArrowDown size={35} />
                     </S.ShowMoreButton>
                   )}
                 </S.ShowMore>
@@ -89,7 +90,7 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
           ) : (
             <Empty
               title=":("
-              description="We didnt find any games with this filter"
+              description="We didn't find any games with this filter"
               hasLink
             />
           )}

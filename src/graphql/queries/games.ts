@@ -3,18 +3,16 @@ import { GameFragment } from 'graphql/fragments/game'
 import { QueryGames, QueryGamesVariables } from 'graphql/generated/QueryGames'
 
 export const QUERY_GAMES = gql`
-  query QueryGames($limit: Int!, $start: Int, $where: JSON, $sort: String) {
+  query QueryGames($limit: Int, $start: Int, $where: JSON, $sort: String) {
     games(limit: $limit, start: $start, where: $where, sort: $sort) {
       ...GameFragment
     }
-
     gamesConnection(where: $where) {
       values {
         id
       }
     }
   }
-
   ${GameFragment}
 `
 
@@ -23,8 +21,8 @@ export const QUERY_GAME_BY_SLUG = gql`
     games(where: { slug: $slug }) {
       id
       name
-      description
       short_description
+      description
       price
       rating
       release_date
